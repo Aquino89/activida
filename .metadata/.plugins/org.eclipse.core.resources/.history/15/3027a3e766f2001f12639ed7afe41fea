@@ -1,0 +1,27 @@
+package com.mx.Microservicios.Service;
+
+import java.util.List;
+
+import org.springframework.data.domain.Sort;
+
+import com.mx.Microservicios.Entity.HUCATMONEDA;
+
+public interface IHUCATMONEDAService {
+	
+	public List<HUCATMONEDA> listar();
+	
+	public HUCATMONEDA guardar(HUCATMONEDA hu_cat_moneda);
+	
+	public HUCATMONEDA editar(HUCATMONEDA hu_cat_moneda);
+	
+	public HUCATMONEDA eliminar(HUCATMONEDA hu_cat_moneda);
+	
+	public HUCATMONEDA buscar(HUCATMONEDA hu_cat_moneda);
+
+	
+
+	
+
+	
+
+}

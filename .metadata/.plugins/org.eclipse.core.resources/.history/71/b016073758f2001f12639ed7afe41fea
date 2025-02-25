@@ -1,0 +1,23 @@
+package com.mx.Microservicios.Service;
+
+import java.util.List;
+
+import org.springframework.data.domain.Sort;
+
+import com.mx.Microservicios.Entity.HU_CAT_MONEDA;
+
+public interface IHU_CAT_MONEDAService {
+	
+	public List<HU_CAT_MONEDA> listar();
+	
+	public HU_CAT_MONEDA guardar(HU_CAT_MONEDA hu_cat_moneda);
+	
+	public HU_CAT_MONEDA editar(HU_CAT_MONEDA hu_cat_moneda);
+	
+	public HU_CAT_MONEDA eliminar(HU_CAT_MONEDA hu_cat_moneda);
+	
+	public HU_CAT_MONEDA buscar(HU_CAT_MONEDA hu_cat_moneda);
+
+	public List<HU_CAT_MONEDA> findAll(Sort by); 
+
+}

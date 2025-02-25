@@ -1,0 +1,48 @@
+package com.mx.Microservicios.Service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
+
+import com.mx.Microservicios.Entity.HUCATMONEDA;
+import com.mx.Microservicios.Repository.HUCATMONEDARepository;
+
+@Service
+public class HUCATMONEDAServiceImp {
+	
+	@Autowired
+	private HUCATMONEDARepository dao;
+
+	public List<HUCATMONEDA> getAllHUCATMONEDA() {
+		return dao.findAll();
+	}
+
+	@Override
+	public HUCATMONEDA guardar(HUCATMONEDA hucatmoneda) {
+		return dao.save(hucatmoneda);
+	}
+
+	@Override
+	public HUCATMONEDA editar(HUCATMONEDA hucatmoneda) {
+		return dao.save(hucatmoneda);
+	}
+ 
+	@Override
+	public HUCATMONEDA eliminar(HUCATMONEDA hucatmoneda) {
+		HUCATMONEDA huc = dao.findById(hucatmoneda.getIdnuCia()).orElse(null);
+		if(huc != null) {
+			dao.delete(huc);
+			return huc;
+		}
+		return null;
+	}
+
+	@Override
+	public HUCATMONEDA buscar(HUCATMONEDA hucatmoneda) {
+		return dao.findById(hucatmoneda.getIdnuCia()).orElse(null);
+	}
+	
+	
+}

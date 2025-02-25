@@ -1,0 +1,9 @@
+package com.mx.Microservicios.Repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.mx.Microservicios.Entity.HU_EMPLS;
+
+public interface HU_EMPSRepository extends JpaRepository<HU_EMPLS, Long> {
+
+}

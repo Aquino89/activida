@@ -1,0 +1,5 @@
+package com.mx.Microservicios.Service;
+
+public interface IHU_CAT_MONEDAService {
+
+}

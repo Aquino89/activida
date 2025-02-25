@@ -1,0 +1,46 @@
+package com.mx.Microservicios.Service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
+
+import com.mx.Microservicios.Entity.HU_CAT_MONEDA;
+
+@Service
+public class HU_CAT_MONEDAServiceImp implements IHU_CAT_MONEDAService {
+	
+	@Autowired
+	private IHU_CAT_MONEDAService dao;
+
+	@Override
+	public List<HU_CAT_MONEDA> listar() {
+		return dao.findAll(Sort.by(Sort.Direction.ASC, "idnuCia"));
+	}
+
+	@Override
+	public HU_CAT_MONEDA guardar(HU_CAT_MONEDA hu_cat_moneda) {
+		return dao.save(hu_cat_moneda);
+	}
+
+	@Override
+	public HU_CAT_MONEDA editar(HU_CAT_MONEDA hu_cat_moneda) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HU_CAT_MONEDA eliminar(HU_CAT_MONEDA hu_cat_moneda) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HU_CAT_MONEDA buscar(HU_CAT_MONEDA hu_cat_moneda) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+}

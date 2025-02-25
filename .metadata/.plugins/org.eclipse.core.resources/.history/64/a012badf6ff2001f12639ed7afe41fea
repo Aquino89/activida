@@ -1,0 +1,47 @@
+package com.mx.Microservicios.Service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+
+import com.mx.Microservicios.Entity.HUEMPLS;
+import com.mx.Microservicios.Repository.HUEMPSRepository;
+
+public class HUEMPLSService implements IHUEMPLSService {
+
+	@Autowired
+	private HUEMPSRepository dao;
+	
+	
+	@Override
+	public List<HUEMPLS> listar() {
+		return dao.findAll(Sort.by(Sort.Direction.ASC, "idNuMemp"));
+	}
+
+	@Override
+	public HUEMPLS guardar(HUEMPLS huempls) {
+		return dao.save(huempls);
+	}
+
+	@Override
+	public HUEMPLS editar(HUEMPLS huempls) {
+		return dao.save(huempls);
+	}
+
+	@Override
+	public HUEMPLS eliminar(HUEMPLS huempls) {
+		HUEMPLS hue = dao.findById(huempls.getIdNuMemp()).orElse(null);
+		if(hue != null) {
+			dao.delete(hue);
+			return hue;
+		}
+		return null;
+	}
+
+	@Override
+	public HUEMPLS buscar(HUEMPLS huempls) {
+		return dao.findById(huempls.getIdNuMemp()).orElse(null);
+	}
+
+}

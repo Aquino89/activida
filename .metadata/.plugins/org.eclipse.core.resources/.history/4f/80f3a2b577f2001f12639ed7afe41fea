@@ -1,0 +1,72 @@
+package com.mx.Microservicios.Controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.mx.Microservicios.Entity.HUCATMONEDA;
+import com.mx.Microservicios.Service.HUCATMONEDAServiceImp;
+
+@RestController
+@RequestMapping(path = "/HU-CAT-MONEDA")
+@CrossOrigin("*")
+public class HUCATMONEDAWS {
+	
+	@Autowired
+	private HUCATMONEDAServiceImp service;
+	
+	// Listar
+	// http://localhost:8080/HU-CAT-MONEDA/listar
+	@GetMapping(path = "/listar")
+	public ResponseEntity<List<HUCATMONEDA>> listar(){ 
+		List<HUCATMONEDA> lista = service.listar();
+		if(lista.isEmpty()) {
+			return ResponseEntity.status(404).build();
+		}
+		return ResponseEntity.status(200).body(lista);
+	}
+	
+	// Guardar
+	// http://localhost:8080/HU-CAT-MONEDA/guardar
+	@PostMapping(path = "/guardar")
+	public ResponseEntity<HUCATMONEDA> guardar(@RequestBody HUCATMONEDA hucatmoneda) {
+		HUCATMONEDA hucat = service.guardar(hucatmoneda);
+		if(hucat == null) {
+			return ResponseEntity.status(400).build();
+		}
+		return ResponseEntity.status(201).body(hucat);
+	}
+	
+	// Editar
+	// http://localhost:8080/HU-CAT-MONEDA/editar
+	@PutMapping(path = "/editar")
+	public ResponseEntity<HUCATMONEDA> editar(@RequestBody HUCATMONEDA hucatmoneda) {
+		HUCATMONEDA hucat = service.editar(hucatmoneda);
+		if(hucat == null) {
+			return ResponseEntity.status(400).build();
+		}
+		return ResponseEntity.status(201).body(hucat);
+	}
+	
+	// Eliminar 
+	// http://localhost:8080/HU-CAT-MONEDA/eliminar
+	@DeleteMapping(path = "/eliminar")
+	public ResponseEntity<HUCATMONEDA> eliminar(@RequestBody HUCATMONEDA hucatmoneda) {
+		HUCATMONEDA hucat = service.eliminar(hucatmoneda);
+		if(hucat == null) {
+			return ResponseEntity.status(400).build();
+		}
+		return ResponseEntity.status(200).body(hucat);
+	}
+	
+
+}

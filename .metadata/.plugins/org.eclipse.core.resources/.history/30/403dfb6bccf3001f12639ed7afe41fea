@@ -1,0 +1,5 @@
+package com.mx.Microservicios.SecurityConfig;
+
+public class SeguridadBasica {
+
+}

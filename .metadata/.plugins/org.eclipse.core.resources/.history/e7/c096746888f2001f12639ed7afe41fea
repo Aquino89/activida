@@ -1,0 +1,71 @@
+package com.mx.Microservicios.Controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.mx.Microservicios.Entity.HUEMPLS;
+import com.mx.Microservicios.Service.HUEMPLSServiceImp;
+
+@RestController
+@RequestMapping("/HU_EMPLS")
+@CrossOrigin("*")
+public class HUEMPLSWS {
+	
+	@Autowired
+	private HUEMPLSServiceImp service;
+	
+	// Listar
+	// http://localhost:8001/HU_EMPLS/listar
+	@GetMapping("/listar")
+	public ResponseEntity<List<HUEMPLS>> listar(){ 
+		List<HUEMPLS> lista = service.listar();
+		if(lista.isEmpty()) {
+			return ResponseEntity.status(404).build();
+		}
+		return ResponseEntity.status(200).body(lista);
+	}
+	
+	// Guardar
+	// http://localhost:8001/HU_EMPLS/guardar
+	@PostMapping("/guardar")
+	public ResponseEntity<HUEMPLS> guardar(@RequestBody HUEMPLS huempls) {
+		HUEMPLS hue = service.guardar(huempls);
+		if(hue == null) {
+			return ResponseEntity.status(400).build();
+		}
+		return ResponseEntity.status(201).body(hue);
+	}
+	
+	// Editar
+	// http://localhost:8001/HU_EMPLS/editar
+	@PutMapping("/editar")
+	public ResponseEntity<HUEMPLS> editar(@RequestBody HUEMPLS huempls) {
+		HUEMPLS hue = service.editar(huempls);
+		if(hue == null) {
+			return ResponseEntity.status(400).build();
+		}
+		return ResponseEntity.status(201).body(hue);
+	}
+	
+	// Eliminar
+	// http://localhost:8001/HU_EMPLS/eliminar
+	@DeleteMapping("/eliminar")
+	public ResponseEntity<HUEMPLS> eliminar(@RequestBody HUEMPLS huempls) {
+		HUEMPLS hue = service.eliminar(huempls);
+		if(hue == null) {
+			return ResponseEntity.status(400).build();
+		}
+		return ResponseEntity.status(200).body(hue);
+	}
+
+}

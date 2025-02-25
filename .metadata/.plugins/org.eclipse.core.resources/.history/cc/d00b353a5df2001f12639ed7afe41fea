@@ -1,0 +1,9 @@
+package com.mx.Microservicios.Repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.mx.Microservicios.Entity.HU_CAT_MONEDA;
+
+public interface HU_CAT_MONEDARepository extends JpaRepository<HU_CAT_MONEDA, Long> {
+
+}

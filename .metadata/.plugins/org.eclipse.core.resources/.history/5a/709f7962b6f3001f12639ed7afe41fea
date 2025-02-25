@@ -1,0 +1,84 @@
+package com.mx.Microservicios.Controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.mx.Microservicios.Entity.HUCATMONEDA;
+import com.mx.Microservicios.Service.HUCATMONEDAServiceImp;
+
+@RestController
+@RequestMapping("/api/HU_CAT_MONEDA")
+@CrossOrigin("*")
+public class HUCATMONEDAWS {
+	
+	@Autowired
+	private HUCATMONEDAServiceImp service;
+	
+	// Listar
+	// http://localhost:8001/HU_CAT_MONEDA/listar
+	@GetMapping("listar")
+	public ResponseEntity<List<HUCATMONEDA>> getAllHUCATMONEDA() { 
+		List<HUCATMONEDA> lista = service.getAllHUCATMONEDA();
+		if(lista.isEmpty()) {
+			return ResponseEntity.status(404).build();
+		}
+		return ResponseEntity.status(200).body(lista);
+	}
+	
+	// Buscar por id
+	// http://localhost:8001/HU_CAT_MONEDA/buscar/1
+	@GetMapping("buscar/{id}")
+	public ResponseEntity<HUCATMONEDA> getHUCATMONEDAById(@PathVariable Long id) {
+		HUCATMONEDA hucat = service.getHUCATMONEDAById(id);
+		if(hucat == null) {
+			return ResponseEntity.status(404).build();
+		}
+		return ResponseEntity.status(200).body(hucat);
+	}
+	
+	// Guardar
+	// http://localhost:8001/HU_CAT_MONEDA/guardar
+	@PostMapping("guardar")
+	public ResponseEntity<HUCATMONEDA> guardar(@RequestBody HUCATMONEDA hucatmoneda) {
+		HUCATMONEDA hucat = service.guardar(hucatmoneda);
+		if(hucat == null) {
+			return ResponseEntity.status(400).build();
+		}
+		return ResponseEntity.status(201).body(hucat);
+	}
+	
+	// Editar
+	// http://localhost:8001/HU_CAT_MONEDA/editar
+	@PutMapping("editar")
+	public ResponseEntity<HUCATMONEDA> editar(@RequestBody HUCATMONEDA hucatmoneda) {
+		HUCATMONEDA hucat = service.editar(hucatmoneda);
+		if(hucat == null) {
+			return ResponseEntity.status(400).build();
+		}
+		return ResponseEntity.status(201).body(hucat);
+	}
+	
+	// Eliminar 
+	// http://localhost:8001/HU_CAT_MONEDA/eliminar
+	@DeleteMapping("eliminar/{idnuCia}")
+	public ResponseEntity<HUCATMONEDA> eliminar(@RequestBody HUCATMONEDA hucatmoneda) {
+		HUCATMONEDA hucat = service.eliminar(hucatmoneda);
+		if(hucat == null) {
+			return ResponseEntity.status(400).build();
+		}
+		return ResponseEntity.status(201).body(hucat);
+	}
+	
+
+}

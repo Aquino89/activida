@@ -1,0 +1,24 @@
+package com.mx.Microservicios.Service;
+
+import java.util.List;
+
+import com.mx.Microservicios.Entity.HUEMPLS;
+
+public interface IHUEMPLSService {
+	
+public List<HUEMPLS> listar();
+	
+	public HUEMPLS guardar(HUEMPLS huempls);
+	
+	public HUEMPLS editar(HUEMPLS huempls);
+	
+	public HUEMPLS eliminar(HUEMPLS huempls);
+	
+	public HUEMPLS buscar(HUEMPLS huempls);
+	
+
+
+	
+	
+
+}

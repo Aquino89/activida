@@ -1,0 +1,13 @@
+
+#Configuracion del servidor
+server.port=8001
+spring.application.name=Microservicios
+
+#Mostrar consultas SQL en la Consola
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+spring.h2.console.enabled=true
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true

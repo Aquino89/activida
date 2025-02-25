@@ -1,0 +1,46 @@
+package com.mx.Microservicios.Service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.mx.Microservicios.Entity.HUEMPLS;
+import com.mx.Microservicios.Repository.HUEMPSRepository;
+
+public class HUEMPLSService implements IHUEMPLSService {
+
+	@Autowired
+	private HUEMPSRepository dao;
+	
+	
+	@Override
+	public List<HUEMPLS> listar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HUEMPLS guardar(HUEMPLS huempls) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HUEMPLS editar(HUEMPLS huempls) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HUEMPLS eliminar(HUEMPLS huempls) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HUEMPLS buscar(HUEMPLS huempls) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

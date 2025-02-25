@@ -1,0 +1,22 @@
+package com.mx.Microservicios.Service;
+
+import java.util.List;
+
+public interface IHUEMPLSService {
+	
+public List<IHUEMPLS> listar();
+
+public List<IHUEMPLS> listar();
+	
+	public Empleados guardar(Empleados empleado); 
+	
+	public Empleados buscar(Long idNumEmp); 
+	
+	public Empleados actualizar(Empleados empleado);
+	
+	public Empleados eliminar(Empleados empleado);
+
+	
+	
+
+}

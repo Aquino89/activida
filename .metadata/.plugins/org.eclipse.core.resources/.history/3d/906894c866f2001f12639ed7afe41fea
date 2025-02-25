@@ -1,0 +1,46 @@
+package com.mx.Microservicios.Service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.mx.Microservicios.Entity.HUCATMONEDA;
+
+@Service
+public class HU_CAT_MONEDAServiceImp implements IHU_CAT_MONEDAService {
+	
+	@Autowired
+	private IHU_CAT_MONEDAService dao;
+
+	@Override
+	public List<HUCATMONEDA> listar() {
+		return dao.findAll(); 
+	}
+
+	@Override
+	public HUCATMONEDA guardar(HUCATMONEDA hu_cat_moneda) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HUCATMONEDA editar(HUCATMONEDA hu_cat_moneda) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HUCATMONEDA eliminar(HUCATMONEDA hu_cat_moneda) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HUCATMONEDA buscar(HUCATMONEDA hu_cat_moneda) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+}

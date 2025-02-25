@@ -1,0 +1,5 @@
+package com.mx.Microservicios.Repository;
+
+public interface HU_CAT_MONEDARepository {
+
+}

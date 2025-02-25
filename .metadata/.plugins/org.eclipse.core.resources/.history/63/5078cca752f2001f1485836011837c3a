@@ -1,0 +1,112 @@
+package com.mx.Microservicios.Entity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "HU-EMPLS")
+public class HU_EMPLS {
+	
+	@Id
+	@Column
+	private Long idNuMemp;
+	@Column
+	private String claveMoneda;
+	@Column
+	private String nombre;
+	@Column
+	private String apellidoPaterno;
+	@Column
+	private String apellidoMaterno;
+	@Column
+	private String puesto;
+	
+	@OneToMany(mappedBy = "numCiaId", cascade = CascadeType.ALL)
+	List<HU_CAT_MONEDA> lista = new ArrayList<>();
+
+	public HU_EMPLS() {
+	}
+
+	public HU_EMPLS(Long idNuMemp, String claveMoneda, String nombre, String apellidoPaterno, String apellidoMaterno,
+			String puesto, List<HU_CAT_MONEDA> lista) {
+		this.idNuMemp = idNuMemp;
+		this.claveMoneda = claveMoneda;
+		this.nombre = nombre;
+		this.apellidoPaterno = apellidoPaterno;
+		this.apellidoMaterno = apellidoMaterno;
+		this.puesto = puesto;
+		this.lista = lista;
+	}
+
+	@Override
+	public String toString() {
+		return "HU_EMPLS [idNuMemp=" + idNuMemp + ", claveMoneda=" + claveMoneda + ", nombre=" + nombre
+				+ ", apellidoPaterno=" + apellidoPaterno + ", apellidoMaterno=" + apellidoMaterno + ", puesto=" + puesto
+				+ ", lista=" + lista + "]";
+	}
+
+	public Long getIdNuMemp() {
+		return idNuMemp;
+	}
+
+	public void setIdNuMemp(Long idNuMemp) {
+		this.idNuMemp = idNuMemp;
+	}
+
+	public String getClaveMoneda() {
+		return claveMoneda;
+	}
+
+	public void setClaveMoneda(String claveMoneda) {
+		this.claveMoneda = claveMoneda;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellidoPaterno() {
+		return apellidoPaterno;
+	}
+
+	public void setApellidoPaterno(String apellidoPaterno) {
+		this.apellidoPaterno = apellidoPaterno;
+	}
+
+	public String getApellidoMaterno() {
+		return apellidoMaterno;
+	}
+
+	public void setApellidoMaterno(String apellidoMaterno) {
+		this.apellidoMaterno = apellidoMaterno;
+	}
+
+	public String getPuesto() {
+		return puesto;
+	}
+
+	public void setPuesto(String puesto) {
+		this.puesto = puesto;
+	}
+
+	public List<HU_CAT_MONEDA> getLista() {
+		return lista;
+	}
+
+	public void setLista(List<HU_CAT_MONEDA> lista) {
+		this.lista = lista;
+	}
+	
+
+}

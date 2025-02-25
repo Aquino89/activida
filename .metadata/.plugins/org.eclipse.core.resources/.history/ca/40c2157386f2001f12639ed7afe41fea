@@ -1,0 +1,100 @@
+package com.mx.Microservicios.Entity;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "HU_CAT_MONEDA")
+public class HUCATMONEDA {
+	
+	@Id
+	@Column
+	private Long idnuCia;
+	@Column
+	private String claveMoneda;
+	@Column
+	private String discripcion;
+	@Column
+	private String sinbolo;
+	@Column
+	private String estatus;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "HU_EMPLS")
+	private HUEMPLS idNumEmp;
+	
+	public HUCATMONEDA() {
+	}
+
+	public HUCATMONEDA(Long idnuCia, String claveMoneda, String discripcion, String sinbolo, String estatus,
+			HUEMPLS idNumEmp) {
+		this.idnuCia = idnuCia;
+		this.claveMoneda = claveMoneda;
+		this.discripcion = discripcion;
+		this.sinbolo = sinbolo;
+		this.estatus = estatus;
+		this.idNumEmp = idNumEmp;
+	}
+
+	@Override
+	public String toString() {
+		return "HUCATMONEDA [idnuCia=" + idnuCia + ", claveMoneda=" + claveMoneda + ", discripcion=" + discripcion
+				+ ", sinbolo=" + sinbolo + ", estatus=" + estatus + ", idNumEmp=" + idNumEmp + "]";
+	}
+
+	public Long getIdnuCia() {
+		return idnuCia;
+	}
+
+	public void setIdnuCia(Long idnuCia) {
+		this.idnuCia = idnuCia;
+	}
+
+	public String getClaveMoneda() {
+		return claveMoneda;
+	}
+
+	public void setClaveMoneda(String claveMoneda) {
+		this.claveMoneda = claveMoneda;
+	}
+
+	public String getDiscripcion() {
+		return discripcion;
+	}
+
+	public void setDiscripcion(String discripcion) {
+		this.discripcion = discripcion;
+	}
+
+	public String getSinbolo() {
+		return sinbolo;
+	}
+
+	public void setSinbolo(String sinbolo) {
+		this.sinbolo = sinbolo;
+	}
+
+	public String getEstatus() {
+		return estatus;
+	}
+
+	public void setEstatus(String estatus) {
+		this.estatus = estatus;
+	}
+
+	public HUEMPLS getIdNumEmp() {
+		return idNumEmp;
+	}
+
+	public void setIdNumEmp(HUEMPLS idNumEmp) {
+		this.idNumEmp = idNumEmp;
+	}
+	
+	
+
+}

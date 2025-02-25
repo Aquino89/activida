@@ -1,0 +1,93 @@
+package com.mx.Microservicios.Entity;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "HU_CAT_MONEDA")
+public class HUCATMONEDA {
+	
+	@Id
+	@Column
+	private Long idnuCia;
+	@Column
+	private String claveMoneda;
+	@Column
+	private String discripcion;
+	@Column
+	private String sinbolo;
+	@Column
+	private String estatus;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "HU_EMPLS")
+	private HUEMPLS idNumEmp;
+	
+	public HUCATMONEDA() {
+	}
+
+	public HUCATMONEDA(Long idnuCia, String claveMoneda, String direccion, String sinbolo, String estatus,
+			HUEMPLS numCiaId) {
+		this.idnuCia = idnuCia;
+		this.claveMoneda = claveMoneda;
+		this.discripcion = direccion;
+		this.sinbolo = sinbolo;
+		this.estatus = estatus;
+		this.numCiaId = numCiaId;
+	}
+
+	public Long getIdnuCia() {
+		return idnuCia;
+	}
+
+	public void setIdnuCia(Long idnuCia) {
+		this.idnuCia = idnuCia;
+	}
+
+	public String getClaveMoneda() {
+		return claveMoneda;
+	}
+
+	public void setClaveMoneda(String claveMoneda) {
+		this.claveMoneda = claveMoneda;
+	}
+
+	public String getDiscripcion() {
+		return discripcion;
+	}
+
+	public void setDiscripcion(String direccion) {
+		this.discripcion = direccion;
+	}
+
+	public String getSinbolo() {
+		return sinbolo;
+	}
+
+	public void setSinbolo(String sinbolo) {
+		this.sinbolo = sinbolo;
+	}
+
+	public String getEstatus() {
+		return estatus;
+	}
+
+	public void setEstatus(String estatus) {
+		this.estatus = estatus;
+	}
+
+	public HUEMPLS getNumCiaId() {
+		return numCiaId;
+	}
+
+	public void setNumCiaId(HUEMPLS numCiaId) {
+		this.numCiaId = numCiaId;
+	}
+	
+
+}

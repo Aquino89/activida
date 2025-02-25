@@ -1,0 +1,5 @@
+package com.mx.Microservicios.Service;
+
+public interface IHUEMPLSService {
+
+}

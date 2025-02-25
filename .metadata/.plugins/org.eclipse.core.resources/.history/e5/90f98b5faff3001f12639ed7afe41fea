@@ -1,0 +1,25 @@
+package com.mx.Microservicios.Service;
+
+import java.util.List;
+
+import com.mx.Microservicios.Entity.HUCATMONEDA;
+
+public interface IHUCATMONEDAService {
+	
+	public List<HUCATMONEDA> listar();
+	
+	public HUCATMONEDA guardar(HUCATMONEDA hucatmoneda);
+	
+	public HUCATMONEDA editar(HUCATMONEDA hucatmoneda);
+	
+	public HUCATMONEDA eliminar(HUCATMONEDA hucatmoneda);
+	
+	public HUCATMONEDA buscar(HUCATMONEDA hucatmoneda);
+
+	
+
+	
+
+	
+
+}
