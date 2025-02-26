@@ -9,7 +9,7 @@ API REST desarrollada con Spring Boot 3 para gestionar catálogos de monedas y e
 ## Ejecución Local
 1. Clona el repositorio:
    ```bash
-   git clone <repository-url
+   git clone <repository-url>
 2. Navegar al dictorio del proyecto
    ```bash
    cd rep-hucatmoneda-huempls
