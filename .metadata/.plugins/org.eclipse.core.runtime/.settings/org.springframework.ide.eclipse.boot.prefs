@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.data-jpa=2
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.docker-compose=2
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.oauth2-resource-server=1
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.security=2
+org.springframework.ide.eclipse.boot.wizard.initializr.url=https\://start.spring.io\n

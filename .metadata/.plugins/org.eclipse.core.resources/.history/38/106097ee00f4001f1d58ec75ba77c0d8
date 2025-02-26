@@ -1,0 +1,56 @@
+package com.mx.Microservicios.Service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.mx.Microservicios.Entity.HUCATMONEDA;
+import com.mx.Microservicios.Repository.HUCATMONEDARepository;
+
+import jakarta.transaction.Transactional;
+
+@Service
+public class HUCATMONEDAServiceImp {
+	
+	@Autowired
+	private HUCATMONEDARepository dao;
+
+	
+	public List<HUCATMONEDA> getAllHUCATMONEDA() {
+		return dao.findAll();
+	}
+
+	
+	public HUCATMONEDA getHUCATMONEDAById(Long id) {
+		return dao.findById(id).orElse(null);
+	}
+
+	public HUCATMONEDA createHUCATMONEDA(HUCATMONEDA hucatmoneda) {
+		return dao.save(hucatmoneda);
+	}
+ 
+	
+	public HUCATMONEDA updateHUCATMONEDA(Long id, HUCATMONEDA updatedHUCATMONEDA) {
+		HUCATMONEDA hucatmoneda = dao.findById(id).orElse(null);
+		if(hucatmoneda != null) {
+			hucatmoneda.setNumCia(updatedHUCATMONEDA.getNumCia());
+			hucatmoneda.setClaveMoneda(updatedHUCATMONEDA.getClaveMoneda());
+			hucatmoneda.setDiscripcion(updatedHUCATMONEDA.getDiscripcion());
+			hucatmoneda.setSinbolo(updatedHUCATMONEDA.getSinbolo());
+			hucatmoneda.setEstatus(updatedHUCATMONEDA.getEstatus());
+			return dao.save(hucatmoneda);
+		}
+		return null;
+	}
+
+	
+	public void deleteHUCATMONEDA(Long id) {
+		dao.deleteById(id);
+	}
+	
+	public HUCATMONEDA getHUCATMONEDAByFilter(Integer numCia, String claveMoneda) {
+		return dao.findBynumCiaAndClaveMoneda(numCia, claveMoneda);
+	}
+	
+}

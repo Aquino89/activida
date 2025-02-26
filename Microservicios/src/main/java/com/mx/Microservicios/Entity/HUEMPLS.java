@@ -20,7 +20,7 @@ public class HUEMPLS {
 	@Column(name = "NUM_CIA", nullable = false)
 	private Integer numCia;
 	
-	@Column(name = "NUM_EMP", nullable = false)
+	@Column(name = "NUM_EMP", nullable = false, unique = true)
 	private Integer numEmp;
 	
 	@Column(name = "NOMBRE", nullable = false)

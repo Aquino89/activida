@@ -57,7 +57,7 @@ public class HUCATMONEDAWS {
 		if(hucat == null) {
 			return ResponseEntity.status(HttpStatus.CREATED).build();
 	}
-		return ResponseEntity.status(HttpStatus.CREATED).body(hucat);
+		return ResponseEntity.status(HttpStatus.OK).body(hucat);
 	}
 	
 	
@@ -92,7 +92,7 @@ public class HUCATMONEDAWS {
 		return ResponseEntity.status(HttpStatus.OK).body(hucat);
 	}
 */
-	
+	 
 	// Buscar por filtro
 	// http://localhost:8001/HU_CAT_MONEDA/buscar/1/USD
 	@GetMapping("/buscar/{numCia}/{claveMoneda}")

@@ -51,9 +51,7 @@ public class HUEMPLSServiceImp {
 	}
 	
 	//---------------------consultas---------------------
-	public HUEMPLS getHUEMPLSByNumEmp(Integer numCia, Integer numEmp) {
-		return dao.findBynumCiaAndNumEmp(numCia, numEmp); 
-	}
+	
 	
 	public List<HUEMPLS> getHUEMPLSByHUCATMONEDA(Integer numCia, String cveMoneda) {
 		return dao.findHUEMPLSByHUCATMONEDA(numCia, cveMoneda);

@@ -8,6 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
+
 @Entity
 @Table(name = "HU_CAT_MONEDA")
 @Data
@@ -20,7 +21,7 @@ public class HUCATMONEDA {
 	@Column(name = "NUM_CIA", nullable = false)
 	private Long numCia;
 	
-	@Column(name = "CLAVE_MONEDA", nullable = false)
+	@Column(name = "CLAVE_MONEDA", nullable = false, unique = true)
 	private String claveMoneda;
 	
 	@Column(name = "DESCRIPCION", nullable = false)
